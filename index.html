@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 智能体免费政策追踪表 · 每周联网核查</title>
+<meta name="description" content="汇总国内外主流 AI 智能体产品的免费政策：长期免费档、免费额度、限时活动与学生优惠。由 AI 定期联网核查更新，逐条标注来源与核实日期。">
+<style>
+  :root {
+    --bg: #f6f8fa; --card: #ffffff; --ink: #1f2328; --muted: #656d76;
+    --line: #d8dee4; --accent: #0969da; --green: #1a7f37; --green-bg: #dafbe1;
+    --orange: #9a6700; --orange-bg: #fff8c5; --blue: #0550ae; --blue-bg: #ddf4ff;
+    --gray: #57606a; --gray-bg: #eef1f4; --red: #cf222e; --red-bg: #ffebe9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 24px 20px 60px; }
+  header { padding: 28px 0 8px; }
+  h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: 0.5px; }
+  .subtitle { color: var(--muted); font-size: 15.5px; margin: 0 0 14px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .badge {
+    font-size: 13px; padding: 3px 12px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--line); color: var(--muted);
+  }
+  .badge.live { color: var(--green); border-color: #a4dcae; background: var(--green-bg); font-weight: 600; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    cursor: pointer; font-size: 14px; padding: 5px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink); user-select: none;
+  }
+  .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+  .search {
+    flex: 1; min-width: 220px; max-width: 360px; margin-left: auto;
+    padding: 7px 14px; font-size: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink);
+  }
+  .search:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .count { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
+  .table-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 980px; }
+  thead th {
+    text-align: left; padding: 12px 14px; background: #f0f3f6; color: var(--muted);
+    font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--line); white-space: nowrap;
+  }
+  tbody td { padding: 14px; border-bottom: 1px solid #eceff2; vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fafbfc; }
+  tr.dead { opacity: 0.62; }
+  .pname { font-weight: 650; font-size: 15px; }
+  .pvendor { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+  .polic-col { min-width: 320px; max-width: 460px; }
+  .quota-col { min-width: 200px; max-width: 280px; }
+  .tag {
+    display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 999px;
+    white-space: nowrap; font-weight: 600;
+  }
+  .tag.longterm { color: var(--green); background: var(--green-bg); }
+  .tag.limited { color: var(--orange); background: var(--orange-bg); }
+  .tag.conditional { color: var(--blue); background: var(--blue-bg); }
+  .tag.expired, .tag.unknown { color: var(--gray); background: var(--gray-bg); }
+  .tag.dead { color: var(--red); background: var(--red-bg); }
+  .time-text { display: block; font-size: 12.5px; color: var(--muted); margin-top: 5px; max-width: 170px; white-space: normal; }
+  .conf { font-size: 12.5px; color: var(--muted); display: block; margin-top: 5px; }
+  .src a {
+    display: inline-block; font-size: 12.5px; color: var(--accent); text-decoration: none;
+    margin: 2px 8px 2px 0; word-break: break-all;
+  }
+  .src a:hover { text-decoration: underline; }
+  .date { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+  section.notes { margin-top: 34px; }
+  section.notes h2 { font-size: 19px; margin: 0 0 10px; }
+  .note-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; }
+  .note-card p { margin: 8px 0; font-size: 14.5px; }
+  .note-card ul { margin: 8px 0; padding-left: 22px; font-size: 14.5px; }
+  .note-card li { margin: 4px 0; }
+  .changelog { margin: 10px 0 0; padding-left: 20px; font-size: 14px; }
+  .changelog li { margin: 6px 0; color: var(--ink); }
+  .changelog .cd { color: var(--muted); font-size: 13px; margin-right: 8px; }
+  footer { margin-top: 30px; color: var(--muted); font-size: 13px; text-align: center; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    h1 { font-size: 23px; }
+    .search { max-width: none; width: 100%; margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>AI 智能体免费政策追踪表</h1>
+    <p class="subtitle">国内外主流 AI 智能体的免费档、免费额度与限时活动一览。由 AI 定期联网核查各产品官方渠道与媒体报道后更新，每条数据都标注核实日期与来源。</p>
+    <div class="badges">
+      <span class="badge live" id="badge-updated">数据更新于加载中…</span>
+      <span class="badge" id="badge-count">收录产品加载中…</span>
+      <span class="badge">纯静态页面 · 无需登录 · 国内可直连</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="chips" id="chips"></div>
+    <input class="search" id="search" type="search" placeholder="搜索产品、厂商或关键词，如“学生”“每日积分”…">
+  </div>
+  <p class="count" id="count"></p>
+
+  <div class="table-card">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>产品</th>
+            <th>免费政策</th>
+            <th>免费额度</th>
+            <th>时效</th>
+            <th>核实</th>
+            <th>来源</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <section class="notes">
+    <h2>使用说明</h2>
+    <div class="note-card">
+      <p><strong>怎么看这张表：</strong>「时效」列的绿色代表长期免费政策，橙色代表限时活动或限免（注意截止时间），蓝色代表需要特定身份（如学生、新用户），灰色代表已过期，红色代表产品已停服。</p>
+      <ul>
+        <li><strong>数据口径：</strong>优先采信官方定价页与官方公告；官方不公布具体数字、只有第三方观测的，会在额度里注明，并把置信度标为「存疑」。数字会随官方调整而变化，正式使用前请点「来源」核对原页面。</li>
+        <li><strong>2026 年的行业趋势：</strong>各产品正从「公布固定次数」转向「5 小时滚动 + 每周限额」的动态计算，多家不再公布免费档具体数字；同时 C 端免费党出现松动（豆包 2026 年 5 月率先收费、Gemini 免费档降级、多家编程工具免费额度收缩）。</li>
+        <li><strong>更新机制：</strong>本页由自动化任务定期联网核查并更新（重大政策变动随时加更）。发现过期或错误信息，欢迎到 <a href="https://github.com/Robin-fang611/ai-agent-free-tracker/issues" target="_blank" rel="noopener">GitHub Issues 提交反馈</a>。</li>
+        <li><strong>免责声明：</strong>本页内容由 AI 基于公开信息整理，可能滞后或有误，仅供个人参考，不构成任何商业承诺；各产品政策以官方页面为准。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>更新日志</h2>
+    <div class="note-card">
+      <ul class="changelog" id="changelog"></ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>数据基于公开信息整理 · 采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="noopener">CC BY 4.0</a> 协议共享 ·
+    项目地址：<a href="https://github.com/Robin-fang611/ai-agent-free-tracker" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+</div>
+
+<script src="./data.js"></script>
+<script>
+(function () {
+  const DATA = window.FREE_DATA;
+  const CATS = ["全部", "通用助手", "编程智能体", "通用Agent平台", "平台与API"];
+  let activeCat = "全部";
+  let keyword = "";
+
+  document.getElementById("badge-updated").textContent = "数据更新于 " + DATA.lastUpdated;
+  document.getElementById("badge-count").textContent = "收录 " + DATA.products.length + " 款产品";
+
+  const chipsBox = document.getElementById("chips");
+  CATS.forEach(function (c) {
+    const el = document.createElement("span");
+    el.className = "chip" + (c === activeCat ? " active" : "");
+    el.textContent = c;
+    el.onclick = function () {
+      activeCat = c;
+      chipsBox.querySelectorAll(".chip").forEach(function (x) { x.classList.remove("active"); });
+      el.classList.add("active");
+      render();
+    };
+    chipsBox.appendChild(el);
+  });
+
+  document.getElementById("search").addEventListener("input", function (e) {
+    keyword = e.target.value.trim().toLowerCase();
+    render();
+  });
+
+  const logBox = document.getElementById("changelog");
+  DATA.updates.forEach(function (u) {
+    const li = document.createElement("li");
+    const d = document.createElement("span");
+    d.className = "cd"; d.textContent = u.date;
+    li.appendChild(d);
+    li.appendChild(document.createTextNode(u.note));
+    logBox.appendChild(li);
+  });
+
+  function render() {
+    const tbody = document.getElementById("tbody");
+    tbody.innerHTML = "";
+    const kw = keyword;
+    const rows = DATA.products.filter(function (p) {
+      if (activeCat !== "全部" && p.category !== activeCat) return false;
+      if (!kw) return true;
+      const hay = (p.name + " " + p.vendor + " " + p.freePolicy + " " + p.quota + " " + p.category).toLowerCase();
+      return hay.indexOf(kw) !== -1;
+    });
+
+    document.getElementById("count").textContent =
+      "当前显示 " + rows.length + " / " + DATA.products.length + " 条";
+
+    if (!rows.length) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = '<td colspan="6" class="empty">没有匹配的产品，换个关键词试试。</td>';
+      tbody.appendChild(tr);
+      return;
+    }
+
+    rows.forEach(function (p) {
+      const tr = document.createElement("tr");
+      if (p.timeliness === "dead") tr.className = "dead";
+
+      const td1 = document.createElement("td");
+      td1.innerHTML = '<div class="pname"></div><div class="pvendor"></div>';
+      td1.querySelector(".pname").textContent = p.name;
+      td1.querySelector(".pvendor").textContent = p.vendor + " · " + p.category;
+
+      const td2 = document.createElement("td");
+      td2.className = "polic-col";
+      td2.textContent = p.freePolicy;
+
+      const td3 = document.createElement("td");
+      td3.className = "quota-col";
+      td3.textContent = p.quota;
+
+      const td4 = document.createElement("td");
+      const tag = document.createElement("span");
+      tag.className = "tag " + p.timeliness;
+      tag.textContent = { longterm: "长期免费", limited: "限时/限免", conditional: "需特定身份", expired: "已过期", dead: "已停服", unknown: "未注明" }[p.timeliness] || "未注明";
+      td4.appendChild(tag);
+      if (p.timeText) {
+        const tt = document.createElement("span");
+        tt.className = "time-text";
+        tt.textContent = p.timeText;
+        td4.appendChild(tt);
+      }
+
+      const td5 = document.createElement("td");
+      td5.innerHTML = '<span class="date"></span><span class="conf"></span>';
+      td5.querySelector(".date").textContent = p.infoDate;
+      td5.querySelector(".conf").textContent = "置信度：" + p.confidence;
+
+      const td6 = document.createElement("td");
+      td6.className = "src";
+      (p.sources || []).forEach(function (s, i) {
+        const a = document.createElement("a");
+        a.href = s.u; a.target = "_blank"; a.rel = "noopener";
+        a.textContent = (i === 0 ? "官方/来源" : "补充" + i) + " ↗";
+        a.title = s.t + "：" + s.u;
+        td6.appendChild(a);
+      });
+
+      tr.append(td1, td2, td3, td4, td5, td6);
+      tbody.appendChild(tr);
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
