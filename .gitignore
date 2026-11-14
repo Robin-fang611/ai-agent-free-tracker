@@ -1,2 +1,8 @@
 .DS_Store
 .mimosa/
+node_modules/
+venv/
+.venv/
+dist/
+build/
+*.log

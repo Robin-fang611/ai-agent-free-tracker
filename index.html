@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 智能体免费政策追踪表 · 每周联网核查</title>
-<meta name="description" content="汇总国内外主流 AI 智能体产品的免费政策：长期免费档、免费额度、限时活动与学生优惠。由 AI 定期联网核查更新，逐条标注来源与核实日期。">
+<meta name="description" content="汇总国内外主流 AI 智能体产品的免费政策：大厂编程/办公智能体精选、长期免费档、免费额度、限时活动。由 AI 定期联网核查更新，逐条标注来源与核实日期。">
 <style>
   :root {
     --bg: #f6f8fa; --card: #ffffff; --ink: #1f2328; --muted: #656d76;
     --line: #d8dee4; --accent: #0969da; --green: #1a7f37; --green-bg: #dafbe1;
     --orange: #9a6700; --orange-bg: #fff8c5; --blue: #0550ae; --blue-bg: #ddf4ff;
     --gray: #57606a; --gray-bg: #eef1f4; --red: #cf222e; --red-bg: #ffebe9;
+    --gold: #7d4e00; --gold-bg: #fff1d0;
   }
   * { box-sizing: border-box; }
   body {
@@ -28,7 +29,36 @@
     background: var(--card); border: 1px solid var(--line); color: var(--muted);
   }
   .badge.live { color: var(--green); border-color: #a4dcae; background: var(--green-bg); font-weight: 600; }
-  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0 14px; }
+
+  /* ===== 大厂精选区 ===== */
+  section.featured { margin: 10px 0 30px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 0 0 4px; }
+  .sec-head h2 { font-size: 21px; margin: 0; }
+  .sec-head .sec-sub { color: var(--muted); font-size: 13.5px; }
+  .star-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; margin-top: 12px; }
+  .star-card {
+    background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--gold);
+    border-radius: 12px; padding: 16px 18px 14px; display: flex; flex-direction: column;
+  }
+  .star-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .star-name { font-size: 16.5px; font-weight: 700; }
+  .star-vendor { color: var(--muted); font-size: 12.5px; }
+  .star-top .tag { margin-left: auto; }
+  .star-tagline { color: var(--ink); font-size: 13.5px; margin: 7px 0 9px; }
+  .star-quota {
+    background: var(--gold-bg); border-radius: 8px; padding: 8px 12px;
+    font-size: 13.5px; margin-bottom: 8px;
+  }
+  .star-quota b { color: var(--gold); }
+  .star-policy { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+  .star-pricing { font-size: 12.5px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; margin-bottom: 8px; }
+  .star-src { margin-top: auto; }
+  .star-src a { font-size: 12.5px; color: var(--accent); text-decoration: none; margin-right: 12px; }
+  .star-src a:hover { text-decoration: underline; }
+
+  /* ===== 完整名录 ===== */
+  .list-head { margin-top: 8px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
     cursor: pointer; font-size: 14px; padding: 5px 14px; border-radius: 999px;
@@ -53,6 +83,7 @@
   tbody tr:hover { background: #fafbfc; }
   tr.dead { opacity: 0.62; }
   .pname { font-weight: 650; font-size: 15px; }
+  .pname .fav { color: var(--gold); font-size: 12px; margin-left: 4px; }
   .pvendor { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
   .polic-col { min-width: 320px; max-width: 460px; }
   .quota-col { min-width: 200px; max-width: 280px; }
@@ -74,6 +105,7 @@
   .src a:hover { text-decoration: underline; }
   .date { font-size: 13px; color: var(--muted); white-space: nowrap; }
   .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
   section.notes { margin-top: 34px; }
   section.notes h2 { font-size: 19px; margin: 0 0 10px; }
   .note-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; }
@@ -89,6 +121,7 @@
   @media (max-width: 640px) {
     h1 { font-size: 23px; }
     .search { max-width: none; width: 100%; margin-left: 0; }
+    .star-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -96,7 +129,7 @@
 <div class="wrap">
   <header>
     <h1>AI 智能体免费政策追踪表</h1>
-    <p class="subtitle">国内外主流 AI 智能体的免费档、免费额度与限时活动一览。由 AI 定期联网核查各产品官方渠道与媒体报道后更新，每条数据都标注核实日期与来源。</p>
+    <p class="subtitle">国内外主流 AI 智能体的免费档、免费额度与限时活动一览。由 AI 定期联网核查各产品官方渠道与媒体报道后更新，每条数据都标注核实日期与来源。顶部精选大厂高额度产品，下方为全部产品名录。</p>
     <div class="badges">
       <span class="badge live" id="badge-updated">数据更新于加载中…</span>
       <span class="badge" id="badge-count">收录产品加载中…</span>
@@ -104,37 +137,50 @@
     </div>
   </header>
 
-  <div class="toolbar">
-    <div class="chips" id="chips"></div>
-    <input class="search" id="search" type="search" placeholder="搜索产品、厂商或关键词，如“学生”“每日积分”…">
-  </div>
-  <p class="count" id="count"></p>
-
-  <div class="table-card">
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>产品</th>
-            <th>免费政策</th>
-            <th>免费额度</th>
-            <th>时效</th>
-            <th>核实</th>
-            <th>来源</th>
-          </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
+  <section class="featured">
+    <div class="sec-head">
+      <h2>⭐ 大厂编程 / 办公智能体精选</h2>
+      <span class="sec-sub">额度给得足、官方口径可查的重点产品</span>
     </div>
-  </div>
+    <div class="star-grid" id="star-grid"></div>
+  </section>
+
+  <section class="list-head">
+    <div class="sec-head">
+      <h2>全部产品名录</h2>
+      <span class="sec-sub">含精选产品在内的完整名单，可按分类筛选</span>
+    </div>
+    <div class="toolbar">
+      <div class="chips" id="chips"></div>
+      <input class="search" id="search" type="search" placeholder="搜索产品、厂商或关键词，如“学生”“每日积分”…">
+    </div>
+    <p class="count" id="count"></p>
+    <div class="table-card">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>产品</th>
+              <th>免费政策</th>
+              <th>免费额度</th>
+              <th>时效</th>
+              <th>核实</th>
+              <th>来源</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
 
   <section class="notes">
     <h2>使用说明</h2>
     <div class="note-card">
-      <p><strong>怎么看这张表：</strong>「时效」列的绿色代表长期免费政策，橙色代表限时活动或限免（注意截止时间），蓝色代表需要特定身份（如学生、新用户），灰色代表已过期，红色代表产品已停服。</p>
+      <p><strong>怎么看这张表：</strong>顶部精选区收录大厂出品、免费额度比较足的编程与办公智能体（金色边框卡片，含定位、额度、付费价格）。下方名录里，「时效」列的绿色代表长期免费政策，橙色代表限时活动或限免（注意截止时间），蓝色代表需要特定身份（如学生、新用户），灰色代表已过期，红色代表产品已停服。</p>
       <ul>
         <li><strong>数据口径：</strong>优先采信官方定价页与官方公告；官方不公布具体数字、只有第三方观测的，会在额度里注明，并把置信度标为「存疑」。数字会随官方调整而变化，正式使用前请点「来源」核对原页面。</li>
-        <li><strong>2026 年的行业趋势：</strong>各产品正从「公布固定次数」转向「5 小时滚动 + 每周限额」的动态计算，多家不再公布免费档具体数字；同时 C 端免费党出现松动（豆包 2026 年 5 月率先收费、Gemini 免费档降级、多家编程工具免费额度收缩）。</li>
+        <li><strong>2026 年的行业趋势：</strong>大厂「办公智能体」（WorkBuddy、豆包工作、千问办公）是新的免费额度高地，普遍采用「积分制 + 限免权益」打法；同时各产品正从「公布固定次数」转向「滚动窗口 + 每周限额」的动态计算，C 端免费出现松动（豆包 2026 年 5 月率先收费、Gemini 免费档降级）。</li>
         <li><strong>更新机制：</strong>本页由自动化任务定期联网核查并更新（重大政策变动随时加更）。发现过期或错误信息，欢迎到 <a href="https://github.com/Robin-fang611/ai-agent-free-tracker/issues" target="_blank" rel="noopener">GitHub Issues 提交反馈</a>。</li>
         <li><strong>免责声明：</strong>本页内容由 AI 基于公开信息整理，可能滞后或有误，仅供个人参考，不构成任何商业承诺；各产品政策以官方页面为准。</li>
       </ul>
@@ -158,13 +204,62 @@
 <script>
 (function () {
   const DATA = window.FREE_DATA;
-  const CATS = ["全部", "通用助手", "编程智能体", "通用Agent平台", "平台与API"];
+  const CATS = ["全部", "办公智能体", "编程智能体", "通用Agent平台", "平台与API", "通用助手"];
+  const TAGS = { longterm: "长期免费", limited: "限时/限免", conditional: "需特定身份", expired: "已过期", dead: "已停服", unknown: "未注明" };
   let activeCat = "全部";
   let keyword = "";
 
   document.getElementById("badge-updated").textContent = "数据更新于 " + DATA.lastUpdated;
-  document.getElementById("badge-count").textContent = "收录 " + DATA.products.length + " 款产品";
+  document.getElementById("badge-count").textContent = "收录 " + DATA.products.length + " 款产品 · 精选 " + DATA.products.filter(function (p) { return p.featured; }).length + " 款";
 
+  /* ===== 精选卡片 ===== */
+  const grid = document.getElementById("star-grid");
+  DATA.products.filter(function (p) { return p.featured; }).forEach(function (p) {
+    const card = document.createElement("div");
+    card.className = "star-card";
+
+    const top = document.createElement("div");
+    top.className = "star-top";
+    const nm = document.createElement("span"); nm.className = "star-name"; nm.textContent = p.name;
+    const vd = document.createElement("span"); vd.className = "star-vendor"; vd.textContent = p.vendor;
+    const tg = document.createElement("span"); tg.className = "tag " + p.timeliness; tg.textContent = TAGS[p.timeliness] || "未注明";
+    top.append(nm, vd, tg);
+    card.appendChild(top);
+
+    const tl = document.createElement("div"); tl.className = "star-tagline"; tl.textContent = p.tagline || "";
+    card.appendChild(tl);
+
+    const q = document.createElement("div"); q.className = "star-quota";
+    const qb = document.createElement("b"); qb.textContent = "免费额度　";
+    q.appendChild(qb); q.appendChild(document.createTextNode(p.quota));
+    card.appendChild(q);
+
+    const pol = document.createElement("p"); pol.className = "star-policy"; pol.textContent = p.freePolicy;
+    card.appendChild(pol);
+
+    if (p.pricing) {
+      const pr = document.createElement("div"); pr.className = "star-pricing";
+      const pb = document.createElement("b"); pb.textContent = "付费价格　";
+      pr.appendChild(pb); pr.appendChild(document.createTextNode(p.pricing));
+      card.appendChild(pr);
+    }
+
+    const src = document.createElement("div"); src.className = "star-src";
+    (p.sources || []).forEach(function (s, i) {
+      const a = document.createElement("a");
+      a.href = s.u; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = (i === 0 ? "官方来源 ↗" : "补充" + i + " ↗");
+      a.title = s.t + "：" + s.u;
+      src.appendChild(a);
+    });
+    const dt = document.createElement("span"); dt.className = "date"; dt.textContent = "核实于 " + p.infoDate;
+    src.appendChild(dt);
+    card.appendChild(src);
+
+    grid.appendChild(card);
+  });
+
+  /* ===== 分类筛选 ===== */
   const chipsBox = document.getElementById("chips");
   CATS.forEach(function (c) {
     const el = document.createElement("span");
@@ -221,7 +316,8 @@
 
       const td1 = document.createElement("td");
       td1.innerHTML = '<div class="pname"></div><div class="pvendor"></div>';
-      td1.querySelector(".pname").textContent = p.name;
+      td1.querySelector(".pname").textContent = p.name + (p.featured ? " ⭐" : "");
+      td1.querySelector(".pname").title = p.featured ? "大厂精选产品" : "";
       td1.querySelector(".pvendor").textContent = p.vendor + " · " + p.category;
 
       const td2 = document.createElement("td");
@@ -235,7 +331,7 @@
       const td4 = document.createElement("td");
       const tag = document.createElement("span");
       tag.className = "tag " + p.timeliness;
-      tag.textContent = { longterm: "长期免费", limited: "限时/限免", conditional: "需特定身份", expired: "已过期", dead: "已停服", unknown: "未注明" }[p.timeliness] || "未注明";
+      tag.textContent = TAGS[p.timeliness] || "未注明";
       td4.appendChild(tag);
       if (p.timeText) {
         const tt = document.createElement("span");

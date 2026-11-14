@@ -13,7 +13,8 @@
 
 | 字段 | 说明 |
 | --- | --- |
-| `name` / `vendor` / `category` | 产品名、厂商、分类（通用助手 / 编程智能体 / 通用Agent平台 / 平台与API） |
+| `name` / `vendor` / `category` | 产品名、厂商、分类（办公智能体 / 编程智能体 / 通用Agent平台 / 平台与API / 通用助手） |
+| `featured` | 可选，`true` 时该产品展示在页面顶部「大厂精选」卡片区，需同时提供 `tagline`（一句话定位）和 `pricing`（付费档价格） |
 | `freePolicy` | 当前免费政策的完整描述 |
 | `quota` | 具体免费额度；只有第三方口径的必须注明 |
 | `timeliness` | `longterm` 长期 / `limited` 限时 / `conditional` 需特定身份 / `expired` 已过期 / `dead` 已停服 |

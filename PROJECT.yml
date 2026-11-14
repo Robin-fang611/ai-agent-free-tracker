@@ -1,0 +1,9 @@
+# 由 2026-11-02 扫描生成；lifecycle 与描述待确认
+name: 智能体免费政策追踪站
+description: AI 智能体免费政策追踪静态站
+type: app
+lifecycle: frozen
+owner: me
+created: 2026-11-02
+depends_on: []
+agents: []

@@ -1,12 +1,56 @@
 // 数据文件：由自动更新任务维护。更新时只改本文件的 lastUpdated / updates / products 字段。
 // 时效类型：longterm=长期有效, limited=限时/限免, conditional=需特定身份, expired=已过期, dead=已停服
+// featured: true 的产品展示在页面顶部「大厂精选」卡片区；tagline=一句话定位，pricing=付费档价格
 window.FREE_DATA = {
-  lastUpdated: "2026-10-18",
+  lastUpdated: "2026-10-19",
   updates: [
-    { date: "2026-10-18", note: "首次全面复核（46 款）。更正 7 条：Skywork 免费档改为注册赠 500 + 每日 120（800/日实为 $1 试用权益）、Replit Free Mode 已对免费档开放、千问 App 上线增值付费、CodeBuddy 国内档位按官方文档更正、Flowith 免费生图权益已移至付费档、GitHub Copilot 删除已废止的「50 次对话/月」口径、Gemini CLI 免费层由 Antigravity CLI 接替。升级 8 条：Copilot「Think Deeper 不限量」获官方原文、Gemini 免费档 Flash-Lite 限制确认生效、Kimi 会员重启开售、DeepSeek Search/Fetch 收费确认 11-01 生效、火山方舟「每日单模型最高 500 万 tokens」获官方产品页确认、智谱积分制细则官方确认、扣子补注册赠 1500 积分、MiniMax 与 MiniMax Code 融合（注册赠 1000 已无现行口径）。存疑维持：ChatGPT/Grok/Perplexity 具体额度、Genspark 与秘塔每日积分、MiniMax 签到数额、GLM Coding Plan 新版售价（官方页网络受限或需登录，已注明原因）。" },
+    { date: "2026-10-19", note: "WorkBuddy 补充模型侧限时权益（均有官方出处）：Hy3 全天免费调用延期至 2026-10-31（此前多次顺延）、Hy4 preview 夜间限免至 10-31、阶跃 Step 5 Preview 10-12~10-25 限免且不耗积分、开学季学生认证领 1000 积分与邀请活动均至 10-31。说明：官方渠道查无「会员档位」或「会员3」限免活动，档位命名也不存在「会员3」；「会员3 免费到 10-31」最可能对应 Hy3 模型限免，已按此收录（App 内活动位无法抓取，如所见不同请以产品内页面为准并反馈）。豆包工作确认 9-24 起二轮 30 天订阅权益。" },
+    { date: "2026-10-19", note: "页面改版：新增「大厂编程/办公智能体精选区」置顶展示（含定位、额度、价格与来源）。新收录 3 款大厂办公智能体：WorkBuddy（腾讯，体验版 500 积分/月 + 每日活跃再送 30 积分，CodeBuddy 套餐通用）、豆包工作（字节跳动，基础功能免费 + 限免领 30 天订阅权益）、千问办公 QwenWork（阿里巴巴，注册赠 2000 积分 + 每日登录 100 积分），全表扩至 49 款。另有 9 款高额度编程智能体进入精选区（Trae、CodeBuddy、通义灵码、文心快码、Qoder、GitHub Copilot、Google Jules、Lovable、Bolt.new）。" },
+    { date: "2026-10-18", note: "首次全面复核（46 款）。更正 7 条：Skywork 免费档改为注册赠 500 + 每日 120（800/日实为 $1 试用权益）、Replit Free Mode 已对免费档开放、千问 App 上线增值付费、CodeBuddy 国内档位按官方文档更正、Flowith 免费生图权益已移至付费档、GitHub Copilot 删除已废止的「50 次对话/月」口径、Gemini CLI 免费层由 Antigravity CLI 接替。升级 8 条存疑项为官方确认（Copilot 不限量原文、Gemini Flash-Lite 生效、Kimi 会员重启、DeepSeek 收费日程、火山方舟额度、智谱积分制、扣子注册赠送、MiniMax 融合）。" },
     { date: "2026-10-18", note: "首次上线：联网核实 46 款智能体产品的免费政策，逐条附来源与核实日期。" }
   ],
   products: [
+    // ===== 办公智能体（大厂精选） =====
+    {
+      name: "WorkBuddy（腾讯龙虾）", vendor: "腾讯", category: "办公智能体", featured: true,
+      tagline: "腾讯 CodeBuddy 团队出品的 AI Agent 办公工作台，文档、表格、PPT、数据可视化一句话交付，兼容 OpenClaw 技能生态",
+      freePolicy: "官方定位为 AI Agent 办公工具（2026 年 3 月上线，现处公测）。免费「体验版」每月发 500 积分，限免期间代码补全无限次、自动任务 99 个、全模型可选（未注明截止）。模型侧多重限时免费（均为官方公告）：Hy3 模型全天免费调用至 2026-10-31（此前已多次顺延，账户需有剩余积分、多模态任务照常扣积分）、Hy4 preview 夜间（23:00–次日 8:00）限免至 10-31、阶跃 Step 5 Preview 于 10-12~10-25 限免且不消耗积分。另有活动：学生认证领 1000 积分（至 10-31 23:59，首批 200 万份）、邀请好友双向得积分（至 10-31）、当天在客户端完成一次有效对话/任务送 30 积分（次日发放，结束时间另行通知）。官方定价页原文确认 CodeBuddy 套餐同样适用于 WorkBuddy，一个账号两个产品通用。",
+      quota: "体验版 500 积分/月 + 每日活跃送 30 积分；Hy3 免费调用至 10-31；Step 5 Preview（10-12~25）不耗积分；学生认证 +1000 积分（至 10-31）",
+      pricing: "标准版 99 元/月（连续包月 70 元，每月实得 4,000 积分）/高级版 199 元（140 元，9,000 积分）/旗舰版 999 元（700 元，50,000 积分）；加量包 1,000 积分 50 元",
+      timeliness: "limited", timeText: "多项限免于 10-25~10-31 陆续截止，体验版无截止", confidence: "官方", infoDate: "2026-10-19",
+      sources: [
+        { t: "Hy3 限免延期官方公告", u: "https://news.qq.com/rain/a/20260930A0BDE700" },
+        { t: "官方定价文档", u: "https://www.workbuddy.cn/docs/workbuddy/Pricing" },
+        { t: "开学季活动页", u: "https://www.workbuddy.cn/events/campus-freshman" },
+        { t: "CodeBuddy 定价页", u: "https://www.codebuddy.cn/pricing" }
+      ]
+    },
+    {
+      name: "豆包工作", vendor: "字节跳动", category: "办公智能体", featured: true,
+      tagline: "字节 2026 年 8 月发布的办公智能体平台（\"你说豆包干\"），能交付文档、表格、PPT、网页，与飞书文档/表格/知识库原生打通",
+      freePolicy: "产品免费可用：基础功能开放，官方明确推出付费后\"原有免费服务与功能保持不变\"，免费用户全量升级豆包 2.1 Turbo 模型，办公任务基础能力提供体验额度（具体次数官方未公布，高峰期可能排队）。上线限免：下载 PC 客户端并登录即可免费领取 30 天\"豆包订阅权益\"（对应档位未注明），9 月 24 日起二轮再送 30 天（已领用户自动续上、付费用户权益自动延期）。会员额度与云存储在豆包系产品（含豆包工作）间跨端共用，按免费额度→创作额度包→会员套餐额度顺序扣减。",
+      quota: "基础功能免费；办公任务体验额度（数额未公布）；30 天订阅权益 ×2 轮（限免中）",
+      pricing: "沿用豆包专业版：标准版 68 元/月（学生认证 38 元）/加强版 200 元/高级版 500 元；标准版办公任务额度约为免费版 5 倍",
+      timeliness: "longterm", timeText: "基础免费长期；30 天订阅权益限免中", confidence: "官方+媒体", infoDate: "2026-10-19",
+      sources: [
+        { t: "官网", u: "https://www.doubao.com/work" },
+        { t: "付费服务协议", u: "https://www.doubao.com/legal/ey01" },
+        { t: "36氪报道", u: "https://m.36kr.com/p/3866485683295496" }
+      ]
+    },
+    {
+      name: "千问办公（QwenWork）", vendor: "阿里巴巴", category: "办公智能体", featured: true,
+      tagline: "阿里 2026 年 8 月公测的一站式 AI 办公智能体（QoderWork 等三合一，钉钉 CEO 牵头），数据分析、PPT、视频剪辑、网页搭建一句话完成",
+      freePolicy: "个人版限时免费（0 元）：首次注册赠 2000 积分（3 个月有效），每日登录再送 100 积分；免费档可用 10 个并行任务、发布 5 个网页、1G 云盘，免费用户不可购买积分包。前作 QoderWork 已公告 2027-09-05 关停并入本产品，个人版与企业版积分相互隔离。",
+      quota: "注册赠 2000 积分（3 个月有效）+ 每日登录 100 积分；10 并行任务、5 个网页、1G 云盘",
+      pricing: "个人标准版 98 元/月（连续包月 78 元，2000 积分/月）/高级版 198 元（158 元，4000 积分、并行不限）；积分包 0.05 元/积分",
+      timeliness: "limited", timeText: "限时免费标注，未注明截止", confidence: "官方", infoDate: "2026-10-18",
+      sources: [
+        { t: "官方权益文档", u: "https://help.aliyun.com/zh/qwenwork/personal-benefits" },
+        { t: "产品页", u: "https://www.qianwenai.com/agents/qwenwork" }
+      ]
+    },
+
     // ===== 通用助手（国际） =====
     {
       name: "ChatGPT", vendor: "OpenAI", category: "通用助手",
@@ -131,7 +175,7 @@ window.FREE_DATA = {
     },
     {
       name: "千问 / 夸克", vendor: "阿里巴巴", category: "通用助手",
-      freePolicy: "千问 App（通义 App 更名）基础对话/搜索免费，但已上线增值付费体系：工作助理套餐（19/49/128 元每月）、千问创作会员（48/58 元每月）、创作积分与视频生成额度包（官方内购清单），此前\"完全不考虑收费\"的口径不再准确。夸克 AI 功能免费版可用，SVIP 会员权益主要指向网盘扩容，AI 功能本身未设付费墙。",
+      freePolicy: "千问 App（通义 App 更名）基础对话/搜索免费，但已上线增值付费体系：工作助理套餐（19/49/128 元每月）、千问创作会员（48/58 元每月）、创作积分与视频生成额度包（官方内购清单），此前\"完全不考虑收费\"的口径不再准确。夸克 AI 功能免费版可用，SVIP 会员权益主要指向网盘扩容，AI 功能本身未设付费墙。注意：千问 App 与「千问办公（QwenWork）」是两套独立产品、独立计费。",
       quota: "千问基础功能免费、增值功能付费；夸克 AI 免费版可用（未注明上限）",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [
@@ -152,9 +196,11 @@ window.FREE_DATA = {
 
     // ===== 编程智能体（国际） =====
     {
-      name: "GitHub Copilot", vendor: "GitHub（Microsoft）", category: "编程智能体",
+      name: "GitHub Copilot", vendor: "GitHub（Microsoft）", category: "编程智能体", featured: true,
+      tagline: "微软/GitHub 官方 AI 编程助手，免费档每月 2,000 次代码补全，IDE 内 agent 模式可用",
       freePolicy: "Copilot Free 面向个人开发者：免费代码补全、对话与 IDE 内 agent 模式（仅自动模型选择）。2026-06-01 起全面转向 AI Credits 用量计费（1 credit = $0.01），聊天与 Agent 均按 token 折算扣减，免费档 credits 数额官方未公布（旧\"50 次对话/月\"口径已从官方文档移除）。云端 agent 与代建 PR 不含在免费档。",
       quota: "2,000 次补全/月（官方）；AI Credits 数额未公布",
+      pricing: "Pro $10/月（1,500 AI Credits）/Pro+ $39（7,000）/Max $100（20,000）",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [
         { t: "官方计划文档", u: "https://docs.github.com/en/copilot/get-started/plans" },
@@ -192,9 +238,11 @@ window.FREE_DATA = {
       ]
     },
     {
-      name: "Lovable", vendor: "Lovable", category: "编程智能体",
+      name: "Lovable", vendor: "Lovable", category: "编程智能体", featured: true,
+      tagline: "对话式 AI 全栈应用搭建平台，免费每天 5 个 build credits，做的网站能直接上线",
       freePolicy: "免费计划每天发放 5 个 build credits（当月累计上限 30 个，用尽后次月恢复），另每月赠 20 个 Cloud credits 与 4 个 AI grant credits（应用 AI 网关调用）；还含按日重置的 chat 专属额度（数额未公布）。免费档不可编辑/下载代码。",
       quota: "5 credits/天（月上限 30）；20 Cloud credits/月；4 AI grant credits/月",
+      pricing: "付费档价格以官网定价页为准（免费额度数字为官方口径）",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [
         { t: "订阅计划文档", u: "https://docs.lovable.dev/introduction/subscription-plans.md" },
@@ -202,9 +250,11 @@ window.FREE_DATA = {
       ]
     },
     {
-      name: "Bolt.new", vendor: "StackBlitz", category: "编程智能体",
+      name: "Bolt.new", vendor: "StackBlitz", category: "编程智能体", featured: true,
+      tagline: "对话生成全栈应用并一键托管，免费每天 30 万 tokens",
       freePolicy: "免费计划按 token 限额使用：每天 300K tokens、每月 1M tokens（不跨月累积），含公开/私人项目、网站托管与数据库，网站带 Bolt 品牌标识。",
       quota: "300K tokens/天；1M tokens/月",
+      pricing: "Pro $25/月（1,000 万 tokens/月起、无日限）",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [ { t: "官方定价页", u: "https://bolt.new/pricing" } ]
     },
@@ -216,32 +266,31 @@ window.FREE_DATA = {
       sources: [ { t: "官方定价页", u: "https://v0.app/pricing" } ]
     },
     {
-      name: "Google Jules", vendor: "Google", category: "编程智能体",
+      name: "Google Jules", vendor: "Google", category: "编程智能体", featured: true,
+      tagline: "Google 异步编码智能体，把任务丢给它自己去跑，免费每天 15 个任务",
       freePolicy: "异步编码智能体免费档（模型 Gemini 2.5 Pro）：每 24 小时最多 15 个任务、最多 3 个并发，用完等待重置。更高额度随 Google AI Pro（约 100 任务/天、15 并发）与 Ultra（约 300 任务/天）订阅。",
       quota: "15 任务/24 小时；3 并发",
+      pricing: "随 Google AI Pro（约 100 任务/天）/AI Ultra（约 300 任务/天）",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [ { t: "用量限制文档", u: "https://jules.google/docs/usage-limits/" } ]
     },
 
     // ===== 编程智能体（国内） =====
     {
-      name: "Trae", vendor: "字节跳动", category: "编程智能体",
+      name: "Trae", vendor: "字节跳动", category: "编程智能体", featured: true,
+      tagline: "字节跳动 AI 编程 IDE，免费档全功能可用（含 2 个云端任务并发），国内大厂编程工具里免费档最完整的产品之一",
       freePolicy: "订阅制下保留永久免费档：全功能可用（含 2 个云端任务并发），每月 500 积分，部分模型享折扣（Seed 系列 5 折等）。付费 Lite 49 元/月起（首月 39 元，2,000 积分/月）。",
       quota: "500 积分/月（官网定价页现行口径）",
+      pricing: "Lite 49 元/月（首月 39，2,000 积分）/Pro 99/Pro+ 239/Ultra 699",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [ { t: "官方定价页", u: "https://www.trae.cn/pricing" } ]
     },
     {
-      name: "Qoder", vendor: "阿里巴巴", category: "编程智能体",
-      freePolicy: "新用户首次登录客户端享 14 天免费 Pro 试用并赠 300 Credits（一次性，多开试用账号会被冻结）。之后降级为长期\"体验版\"免费档：限次代码补全、基础模型、消息条数受限，支持自带 API Key（BYOK）。付费 Pro $20/月起。产品内另有\"每日领取 100 Credits\"等限时活动（以产品内公告为准）。",
-      quota: "14 天 Pro 试用 + 300 Credits（新用户一次性）；体验版长期可用（数字未公布）",
-      timeliness: "conditional", timeText: "新用户试用；体验版长期", confidence: "官方", infoDate: "2026-10-18",
-      sources: [ { t: "官方定价文档", u: "https://docs.qoder.com/zh/account/pricing" } ]
-    },
-    {
-      name: "CodeBuddy", vendor: "腾讯", category: "编程智能体",
-      freePolicy: "国内版现行四档（官方定价文档）：体验版（免费）/标准 99 元/高级 199 元/旗舰 999 元每月（连续包月 7 折）。体验版含基础积分 500/月 + 限时每月实得积分 500，限免期间代码补全无限次、自动任务 3 个（限免 99 个）、全模型可选，未注明截止。国际版 Free：100 积分/月 + 每日活跃奖励 30 积分/天（限时活动）+ 补全 5,000 次/月，新用户赠 250 积分（14 天），Pro 已降至 $10/月。",
+      name: "CodeBuddy", vendor: "腾讯", category: "编程智能体", featured: true,
+      tagline: "腾讯云 AI 编程助手，限免期间代码补全无限次、全模型可选，套餐与 WorkBuddy 通用",
+      freePolicy: "国内版现行四档（官方定价文档）：体验版（免费）/标准 99 元/高级 199 元/旗舰 999 元每月（连续包月 7 折）。体验版含基础积分 500/月 + 限时每月实得积分 500，限免期间代码补全无限次、自动任务 99 个、全模型可选，未注明截止。国际版 Free：100 积分/月 + 每日活跃奖励 30 积分/天（限时活动）+ 补全 5,000 次/月，新用户赠 250 积分（14 天），Pro 已降至 $10/月。CodeBuddy 套餐同样适用于 WorkBuddy（官方原文）。",
       quota: "国内体验版 500 积分/月（+限时 500）、限免无限补全；国际 100 积分/月 + 30 积分/天",
+      pricing: "标准 99/高级 199/旗舰 999 元/月（连续包月 7 折为 70/140/700）",
       timeliness: "limited", timeText: "体验版限免未注明截止；免费档本身长期", confidence: "官方", infoDate: "2026-10-18",
       sources: [
         { t: "国内版定价文档", u: "https://www.codebuddy.cn/docs/ide/Account/pricing" },
@@ -249,18 +298,31 @@ window.FREE_DATA = {
       ]
     },
     {
-      name: "通义灵码", vendor: "阿里云", category: "编程智能体",
+      name: "通义灵码", vendor: "阿里云", category: "编程智能体", featured: true,
+      tagline: "阿里云 AI 编程助手，个人基础版免费，专业版现限免中（原价 59 元/月）",
       freePolicy: "个人基础版永久免费：补全不限量，官方表述为对话 50 轮次/月、单元测试智能体 50 方法/月。个人专业版（原价 59 元/月）官网现标注\"限免\"，未注明截止日期，本轮复核确认限免延续。",
       quota: "基础版不限量补全、对话 50 轮次/月、单测 50 方法/月；专业版限免中",
+      pricing: "个人专业版原价 59 元/月（现限免）；企业标准版 79 元/人/月起",
       timeliness: "limited", timeText: "基础版长期免费；专业版限免中", confidence: "官方", infoDate: "2026-10-18",
       sources: [ { t: "官方定价页", u: "https://lingma.aliyun.com/pricing" } ]
     },
     {
-      name: "文心快码 Comate", vendor: "百度", category: "编程智能体",
+      name: "文心快码 Comate", vendor: "百度", category: "编程智能体", featured: true,
+      tagline: "百度 AI 编程助手，智能补全不限次，额度用尽还有 Auto-Free 免费通道兜底",
       freePolicy: "个人标准版长期免费：智能代码补全不限次；首次开通赠 5000 积分（仅 7 天有效）。额度用尽后仍可免费续用 Auto-Free 模式（免费模型通道）。付费档：个人专业版 70 元/月、个人旗舰版 280 元/月（新增）。",
       quota: "补全不限次；赠 5000 积分（7 天）；Auto-Free 模式免费",
+      pricing: "个人专业版 70 元/月（25,000 积分/月）、旗舰版 280 元/月",
       timeliness: "longterm", timeText: "长期有效", confidence: "官方", infoDate: "2026-10-18",
       sources: [ { t: "官方计费文档", u: "https://cloud.baidu.com/doc/COMATE/s/rlnvnio4a" } ]
+    },
+    {
+      name: "Qoder", vendor: "阿里巴巴", category: "编程智能体", featured: true,
+      tagline: "阿里 Agentic 编程工具，新用户 14 天 Pro 试用 + 300 Credits，体验版长期可用",
+      freePolicy: "新用户首次登录客户端享 14 天免费 Pro 试用并赠 300 Credits（一次性，多开试用账号会被冻结）。之后降级为长期\"体验版\"免费档：限次代码补全、基础模型、消息条数受限，支持自带 API Key（BYOK）。付费 Pro $20/月起。产品内另有\"每日领取 100 Credits\"等限时活动（以产品内公告为准）。其办公产品 QoderWork 将于 2027-09-05 关停并入千问办公。",
+      quota: "14 天 Pro 试用 + 300 Credits（新用户一次性）；体验版长期可用（数字未公布）",
+      pricing: "Pro $20/月（2,000 Credits）/Pro+ $60（6,000）/Ultra $200（20,000）",
+      timeliness: "conditional", timeText: "新用户试用；体验版长期", confidence: "官方", infoDate: "2026-10-18",
+      sources: [ { t: "官方定价文档", u: "https://docs.qoder.com/zh/account/pricing" } ]
     },
     {
       name: "iFlow CLI（心流）", vendor: "心流（阿里系）", category: "编程智能体",
